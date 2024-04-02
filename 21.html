@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>HTML5 Geolocation API Demo</title>
+  </head>
+  <body>
+    <h1>HTML5 Geolocation API Demo</h1>
+    <p>Click the button to get your current location:</p>
+    <button onclick="getLocation()">Get Location</button>
+    <div id="location"></div>
+    <script>
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          document.getElementById("location").innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+      function showPosition(position) {
+        document.getElementById("location").innerHTML = "Latitude: " + position.coords.latitude + 
+        "<br>Longitude: " + position.coords.longitude;
+      }
+    </script>
+  </body>
+</html>
+
